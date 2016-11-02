@@ -16,7 +16,7 @@ export class SimpleUsageComponent {
   isFloatingWindow: boolean = false;
   showBackground: boolean = true;
   windowSize: string = 'small';
-  panelClass: string = 'panel-default';
+  panelClass: string = 'card-default';
 
   constructor(private windowView: WindowViewService) {}
 

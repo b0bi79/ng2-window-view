@@ -12,7 +12,7 @@ and provide collection of common type of modal, dialog components.
 
 ### Core Classes
 
-- `WindowViewContainerComponent` - A window component using bootstrap `panel` class.
+- `WindowViewContainerComponent` - A window component using bootstrap `modal` class.
                                    Anything wrap by this will present as content of a window.
                                    Provide some common config.
 

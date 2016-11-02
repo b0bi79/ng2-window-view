@@ -13,7 +13,7 @@ export class SimpleWindowComponent {
   isFloatingWindow: boolean = false;
   showBackground: boolean = true;
   windowSize: string = 'small';
-  panelClass: string = 'panel-default';
+  panelClass: string = 'card-default';
 
   @ViewChild(WindowViewContainerComponent)
   windowViewContainer: WindowViewContainerComponent;

@@ -11,11 +11,11 @@ import { WindowViewLayerService } from '../window-view-layer.service';
        [class.hide-container]="hideContainer"
        [style.z-index]="zIndex">
     <div class="window-background" (click)="onClickBackground($event)" *ngIf="showBackground"></div>
-    <div class="panel {{ panelClass }} {{ sizeClass }}"
+    <div class="card {{ panelClass }} {{ sizeClass }}"
         [style.top]="top + 'px'"
         [style.left]="left + 'px'"
         (click)="onClickWindow()">
-      <div class="panel-heading"
+      <div class="card-heading"
           (mousedown)="onMouseDown($event)"
           (mouseup)="onMouseUp($event)"
           (mouseleave)="onMouseUp($event)"
@@ -24,10 +24,10 @@ import { WindowViewLayerService } from '../window-view-layer.service';
         <ng-content select="[panel-heading]"></ng-content>
         <a class="btn-close" (click)="closeWindow()"><span class="glyphicon glyphicon-remove pull-right"></span></a>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <ng-content></ng-content>
       </div>
-      <div class="panel-footer">
+      <div class="card-footer">
         <ng-content select="[panel-footer]"></ng-content>
       </div>
     </div>
@@ -35,7 +35,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
   `,
   styles: [`
   .window-container,
-  .window-background {
+  not(.hide-container) .window-background {
     position: fixed;
     overflow: auto;
     width: 100%;
@@ -47,32 +47,35 @@ import { WindowViewLayerService } from '../window-view-layer.service';
   .window-container.hide-container {
     width: 0;
     height: 0;
+    overflow: initial;
+    width: inherit;
+    height: inherit;
   }
 
-  .window-background {
+  not(.hide-container) .window-background {
     background-color: rgba(0,0,0,0.6);
     z-index: -1;
   }
 
-  .window-container.fixed .panel {
+  .window-container.fixed .card {
     min-width: 20%;
     margin: 4% auto;
   }
 
-  .window-container.floating .panel {
+  .window-container.floating .card {
     min-width: 20%;
     position: fixed;
     box-shadow: 0px 6px 24px grey;
   }
 
-  .panel.size-relative-large { width: 80%; }
-  .panel.size-relative-middle { width: 60%; }
-  .panel.size-relative-small { width: 40%; }
-  .panel.size-large { width: 1080px; }
-  .panel.size-middle { width: 720px; }
-  .panel.size-small { width: 360px; }
+  .card.size-relative-large { width: 80%; }
+  .card.size-relative-middle { width: 60%; }
+  .card.size-relative-small { width: 40%; }
+  .card.size-large { width: 1080px; }
+  .card.size-middle { width: 720px; }
+  .card.size-small { width: 360px; }
 
-  .panel-heading {
+  .card-heading {
     text-align: center;
   }
 
@@ -80,7 +83,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
     cursor: auto;
   }
 
-  .window-container.floating .panel-heading {
+  .window-container.floating .card-heading {
     cursor: move;
   }
   `]
@@ -128,10 +131,10 @@ export class WindowViewContainerComponent implements OnInit, OnDestroy {
   /**
    * Panel class.
    * 
-   * Default: 'panel-default'
+   * Default: 'card-default'
    */
   @Input()
-  panelClass: string = 'panel-default';
+  panelClass: string = 'card-default';
 
   @Output()
   close: EventEmitter<any> = new EventEmitter();
