@@ -22,7 +22,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
           (mousemove)="onMouseMove($event)">
         {{ heading }}
         <ng-content select="[panel-heading]"></ng-content>
-        <a class="btn-close" (click)="closeWindow()"><span class="glyphicon glyphicon-remove pull-right"></span></a>
+        <a class="btn-close" (click)="closeWindow()"><i class="fa fa-times" aria-hidden="true"></i></a>
       </div>
       <div class="card-body">
         <ng-content></ng-content>
