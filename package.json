@@ -2,7 +2,7 @@
   "name": "ng2-window-view",
   "version": "0.1.2",
   "description": "",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "lint": "tslint \"src/**/*.ts\"",
