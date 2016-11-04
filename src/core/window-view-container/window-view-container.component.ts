@@ -11,11 +11,11 @@ import { WindowViewLayerService } from '../window-view-layer.service';
        [class.hide-container]="hideContainer"
        [style.z-index]="zIndex">
     <div class="window-background" (click)="onClickBackground($event)" *ngIf="showBackground"></div>
-    <div class="card {{ panelClass }} {{ sizeClass }}"
+    <div class="card text-xs-center {{ panelClass }} {{ sizeClass }}"
         [style.top]="top + 'px'"
         [style.left]="left + 'px'"
         (click)="onClickWindow()">
-      <div class="card-heading"
+      <div class="card-header"
           (mousedown)="onMouseDown($event)"
           (mouseup)="onMouseUp($event)"
           (mouseleave)="onMouseUp($event)"
@@ -24,7 +24,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
         <ng-content select="[panel-heading]"></ng-content>
         <a class="btn-close" (click)="closeWindow()"><i class="fa fa-times pull-right" aria-hidden="true"></i></a>
       </div>
-      <div class="card-body">
+      <div class="card-block">
         <ng-content></ng-content>
       </div>
       <div class="card-footer">
@@ -60,12 +60,19 @@ import { WindowViewLayerService } from '../window-view-layer.service';
   .window-container.fixed .card {
     min-width: 20%;
     margin: 4% auto;
+    z-index: 10001;
   }
 
   .window-container.floating .card {
     min-width: 20%;
     position: fixed;
-    box-shadow: 0px 6px 24px grey;
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.28);
+    z-index: 10001;
+  }
+
+  .card-footer {
+    height: inherit;
+    padding: 0.5em;
   }
 
   .card.size-relative-large { width: 80%; }
@@ -75,12 +82,8 @@ import { WindowViewLayerService } from '../window-view-layer.service';
   .card.size-middle { width: 720px; }
   .card.size-small { width: 360px; }
 
-  .card-heading {
-    text-align: center;
-  }
-
   .btn-close {
-    cursor: auto;
+    cursor: pointer;
   }
 
   .window-container.floating .card-heading {
