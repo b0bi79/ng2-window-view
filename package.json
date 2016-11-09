@@ -33,7 +33,7 @@
   ],
   "peerDependencies": {
     "@angular/core": "^2.1.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0-alpha.5",
     "ts-helpers": "^1.1.2"
   },
   "devDependencies": {
@@ -45,7 +45,7 @@
     "@angular/platform-browser": "^2.1.0",
     "@angular/platform-browser-dynamic": "^2.1.0",
     "@types/jasmine": "^2.5.35",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0-alpha.5",
     "codelyzer": "^1.0.0-beta.2",
     "core-js": "^2.4.1",
     "cross-env": "3.1.2",
@@ -73,5 +73,8 @@
   "bugs": {
     "url": "https://github.com/b0bi79/ng2-window-view.git"
   },
-  "homepage": "https://github.com/b0bi79/ng2-window-view#readme"
+  "homepage": "https://github.com/b0bi79/ng2-window-view#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5"
+  }
 }
