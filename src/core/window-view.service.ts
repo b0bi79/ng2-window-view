@@ -14,11 +14,12 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { WindowViewCanClose } from './window-view-can-close';
 import { WindowViewHasResult } from './window-view-has-result';
+import { WindowViewComponentCache } from './window-view.component-cache'
 
 @Injectable()
 export class WindowViewService {
 
-  private cachedComponentFactories: Map<Type<any>, ComponentFactory<any>> = new Map();
+  private cachedComponentFactories: WindowViewComponentCache = WindowViewComponentCache.getInstance();
 
   private stack: ComponentRef<any>[] = [];
 

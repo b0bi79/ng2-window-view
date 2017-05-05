@@ -1,12 +1,13 @@
 "use strict";
 var core_1 = require('@angular/core');
 var Subject_1 = require('rxjs/Subject');
+var window_view_component_cache_1 = require('./window-view.component-cache');
 var WindowViewService = (function () {
     function WindowViewService(cfr, compiler, injector) {
         this.cfr = cfr;
         this.compiler = compiler;
         this.injector = injector;
-        this.cachedComponentFactories = new Map();
+        this.cachedComponentFactories = window_view_component_cache_1.WindowViewComponentCache.getInstance();
         this.stack = [];
         this._length$ = new Subject_1.Subject();
         this._open$ = new Subject_1.Subject();
