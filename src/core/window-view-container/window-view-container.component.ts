@@ -35,7 +35,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
   `,
   styles: [`
   .window-container,
-  not(.hide-container) .window-background {
+  .window-container:not(.hide-container) .window-background {
     position: fixed;
     overflow: auto;
     width: 100%;
@@ -52,7 +52,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
     height: inherit;
   }
 
-  not(.hide-container) .window-background {
+  .window-container:not(.hide-container) .window-background {
     background-color: rgba(0,0,0,0.6);
     z-index: -1;
   }
