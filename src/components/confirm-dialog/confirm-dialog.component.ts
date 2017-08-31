@@ -79,7 +79,7 @@ export class ConfirmDialogComponent implements WindowViewHasResult<boolean> {
     this.result.emit({ target: this, result: false });
   }
 
-  private onClose() {
+  public onClose() {
     this._result$.complete();
     this.dismiss.emit({ target: this });
   }

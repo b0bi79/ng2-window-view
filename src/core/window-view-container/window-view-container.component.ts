@@ -153,9 +153,9 @@ export class WindowViewContainerComponent implements OnInit, OnDestroy {
 
   get hideContainer(): boolean { return this.floating && !!this.windowViewLayer; }
 
-  private top: number = 0;
+  public top: number = 0;
 
-  private left: number = 0;
+  public left: number = 0;
 
   private isMouseDown: boolean = false;
 
@@ -163,7 +163,7 @@ export class WindowViewContainerComponent implements OnInit, OnDestroy {
 
   private draggingRelativeLocation: { x: number, y: number } = { x: 0, y: 0 };
 
-  private get sizeClass(): string {
+  public get sizeClass(): string {
     switch (this.size.toLowerCase()) {
       case 's':
       case 'small': return 'size-small';
@@ -212,19 +212,19 @@ export class WindowViewContainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  private onClickWindow() {
+  public onClickWindow() {
     if (this.floating && this.windowViewLayer) {
       this.windowViewLayer.bringToTop(this);
     }
   }
 
-  private onClickBackground($event: MouseEvent) {
+  public onClickBackground($event: MouseEvent) {
     if ($event.currentTarget === $event.target) {
       this.closeWindow();
     }
   }
 
-  private onMouseDown(e: MouseEvent) {
+  public onMouseDown(e: MouseEvent) {
     this.isMouseDown = true;
     if (this.floating) {
       this.draggingRelativeLocation.x = e.offsetX;
@@ -232,12 +232,12 @@ export class WindowViewContainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  private onMouseUp(e: MouseEvent) {
+  public onMouseUp(e: MouseEvent) {
     this.isMouseDown = false;
     this.isDragging = false;
   }
 
-  private onMouseMove(e: MouseEvent) {
+  public onMouseMove(e: MouseEvent) {
     if (this.isDragging) {
       this.left = e.clientX - this.draggingRelativeLocation.x;
       this.top = e.clientY - this.draggingRelativeLocation.y;

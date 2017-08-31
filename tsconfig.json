@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
+    "target": "es5",
     "noEmitHelpers": true,
     "noImplicitAny": true,
-    "declaration": false,
-    "lib": [ "dom", "es6" ],
     "typeRoots": [
       "node_modules/@types"
     ],
+    "lib": [ "dom", "es2016" ],
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "paths": {
+      "@node_modules/*": [ "../node_modules/*" ],
+      "@angular/*": [ "../node_modules/@angular/*" ]
+    }
   },
 
   "exclude": [
     "**/*.spct.ts",
     "node_modules"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }
