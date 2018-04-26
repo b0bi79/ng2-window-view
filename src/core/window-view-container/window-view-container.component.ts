@@ -24,7 +24,7 @@ import { WindowViewLayerService } from '../window-view-layer.service';
         <ng-content select="[panel-heading]"></ng-content>
         <a class="btn-close" (click)="closeWindow()"><i class="fa fa-times pull-right" aria-hidden="true"></i></a>
       </div>
-      <div class="card-block">
+      <div class="card-body">
         <ng-content></ng-content>
       </div>
       <div class="card-footer">
